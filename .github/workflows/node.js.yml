@@ -27,3 +27,5 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+      env:
+        CLA_ASSISTANT_UTILS_GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.CLA_ASSISTANT_UTILS_GITHUB_PERSONAL_ACCESS_TOKEN }}
