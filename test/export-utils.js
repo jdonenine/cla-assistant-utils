@@ -86,12 +86,25 @@ describe('ExportUtils', function () {
             expect(caughtError).to.be.true;
         });
 
-        it('should return signings given valid test parameters', async function () {
+        it('should return signings given valid test parameters via environment variables', async function () {
             this.timeout(10000);
             const signings = await ExportUtils.getAllSignings(
-                undefined, //via environment variable
-                '320589903',
-                'https://gist.github.com/fc73e83c067fa38cfc79ecb5400175c5'
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_PERSONAL_ACCESS_TOKEN,
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_REPO_ID,
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_URL
+            );
+            expect(signings).to.not.be.undefined;
+            expect(signings).to.not.be.empty;
+        });
+
+        it('should return signings given valid test parameters for specific gist version via environment variables', async function () {
+            this.timeout(10000);
+            const signings = await ExportUtils.getAllSignings(
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_PERSONAL_ACCESS_TOKEN,
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_REPO_ID,
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_URL,
+                true,
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_VERSION_ID
             );
             expect(signings).to.not.be.undefined;
             expect(signings).to.not.be.empty;
