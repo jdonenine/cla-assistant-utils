@@ -1,0 +1,32 @@
+{
+  "name": "cla-assistant-utils",
+  "version": "0.0.1",
+  "description": "Utilities for automating interaction with the cla-assistant service APIs",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "test:all": "mocha",
+    "test:cla-assistant-utils": "mocha test/cla-assistant-utils.js",
+    "test:export-utils": "mocha test/export-utils.js",
+    "pretty:check": "prettier --check \"**/*.js\"",
+    "pretty": "prettier --write  \"**/*.js\""
+  },
+  "keywords": [
+    "cla-assistant",
+    "backup",
+    "utils",
+    "api"
+  ],
+  "author": "Jeffry DiNoto",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "commander": "^6.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1"
+  }
+}
