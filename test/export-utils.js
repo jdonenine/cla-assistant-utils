@@ -73,12 +73,13 @@ describe('ExportUtils', function () {
         });
 
         it('should throw error when invalid gitHubPersonalAccessToken is provided for a valid gitHubRepositoryId and claGistUrl', async function () {
+            this.timeout(10000);
             var caughtError = false;
             try {
                 const ret = await ExportUtils.getAllSignings(
                     'bad-token',
-                    '320589903',
-                    'https://gist.github.com/fc73e83c067fa38cfc79ecb5400175c5'
+                    process.env.CLA_ASSISTANT_UTILS_GITHUB_REPO_ID,
+                    process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_URL
                 );
             } catch (error) {
                 caughtError = true;
