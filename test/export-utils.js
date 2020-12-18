@@ -104,7 +104,7 @@ describe('ExportUtils', function () {
                 process.env.CLA_ASSISTANT_UTILS_GITHUB_PERSONAL_ACCESS_TOKEN,
                 process.env.CLA_ASSISTANT_UTILS_GITHUB_REPO_ID,
                 process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_URL,
-                true,
+                process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_SHARED,
                 process.env.CLA_ASSISTANT_UTILS_GITHUB_CLA_GIST_VERSION_ID
             );
             expect(signings).to.not.be.undefined;
